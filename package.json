@@ -1,0 +1,17 @@
+{
+  "name": "null-delimited-line-splitter",
+  "version": "0.1.0",
+  "description": "Splits file content on null bytes instead of newlines for parsing null-separated record formats.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {}
+}
