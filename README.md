@@ -33,3 +33,10 @@ The trade-off: this library does one thing — it splits on `\u0000`. It does no
 
 - `splitNullDelimited(input: string): string[]` — splits `input` on every null byte.
 - `splitNullDelimitedStream(): { push(chunk: string): string[], flush(): string[] }` — returns a stateful splitter. `push` feeds a chunk and returns any records completed by that chunk. `flush` returns the remaining buffer as a single-element array.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
